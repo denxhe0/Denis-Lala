@@ -1,31 +1,93 @@
-
-
-
-//dlala
+//dlala22
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h>
 
-int main()
-{
+double sum(double num1, double num2) {
+    return num1 + num2;
+}
 
-//here I declare the variable
-    int hours,minutes,seconds;
+double subtract(double num1, double num2) {
+    return num1 - num2;
+}
 
-    //we get the input (seconds) from user
-    scanf("%d",&seconds);
+double multiply(double num1, double num2) {
+    return num1 * num2;
+}
 
+double divide(double num1, double num2) {
+    if (num2 == 0) {
+        printf("Error: Cannot divide by zero\n");
+        return 0;
+    }
+    return num1 / num2;
+}
 
-//now we make the algorithm to convert seconds to into hours,minutes and seconds
-   hours=seconds/3600;
-   seconds=seconds%3600;
-   minutes=seconds/60;
-   seconds=seconds%60;
+double square_root(double num) {
+    if (num < 0) {
+        printf("Error: Cannot calculate square root of a negative number\n");
+        return 0;
+    }
+    return sqrt(num);
+}
 
-//now show the result
-    printf("%d ",hours,minutes);
-    printf("%d ",minutes);
-    printf("%d",seconds);
+double power(double num, int m) {
+    return pow(num, m);
+}
 
+int main() {
+    double num1, num2, result;
+    int m, choice;
+
+    printf("Enter your choice:\n");
+    printf("1. Sum of 2 numbers\n");
+    printf("2. Subtraction of 2 numbers\n");
+    printf("3. Multiplication of 2 numbers\n");
+    printf("4. Division of 2 numbers\n");
+    printf("5. Square root of a number\n");
+    printf("6. Power m of a number\n");
+    
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Enter two numbers:\n");
+            scanf("%lf %lf", &num1, &num2);
+            result = sum(num1, num2);
+            printf("Result = %lf\n", result);
+            break;
+        case 2:
+            printf("Enter two numbers:\n");
+            scanf("%lf %lf", &num1, &num2);
+            result = subtract(num1, num2);
+            printf("Result = %lf\n", result);
+            break;
+        case 3:
+            printf("Enter two numbers:\n");
+            scanf("%lf %lf", &num1, &num2);
+            result = multiply(num1, num2);
+            printf("Result = %lf\n", result);
+            break;
+        case 4:
+            printf("Enter two numbers:\n");
+            scanf("%lf %lf", &num1, &num2);
+            result = divide(num1, num2);
+            printf("Result = %lf\n", result);
+            break;
+        case 5:
+            printf("Enter a number:\n");
+            scanf("%lf", &num1);
+            result = square_root(num1);
+            printf("Result = %lf\n", result);
+            break;
+        case 6:
+            printf("Enter a number and power:\n");
+            scanf("%lf %d", &num1, &m);
+            result = power(num1, m);
+            printf("Result = %lf\n", result);
+            break;
+        default:
+            printf("Invalid choice!!!\n");
+    }
 
     return 0;
 }
